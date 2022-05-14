@@ -1,0 +1,12 @@
+﻿@model Product
+@section Styles {
+<link rel="stylesheet" href="~/css/AdminProduct.css" />
+}
+
+<!--Specifying which action method will be send to the partail view if the Create View Returend-->
+@{
+    ViewBag.ActionMethod = "Create";
+}
+
+<partial name="CreateEditForm" model="Model"/>
+

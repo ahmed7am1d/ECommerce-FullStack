@@ -1,0 +1,51 @@
+﻿@model LoginViewModel
+@section Styles {
+<link rel="stylesheet" href="~/css/LogIn.css" />
+}
+
+<div class="loginForm">
+        <!-- Header -->
+        <h2>Choose Account Type</h2>
+        <!-- TwoChoices-->
+        <div class="userOptions">
+          <div class="admin">
+            <img src="~/img/LoginPage/admin.png" />
+            <h4>Admin</h4>
+          </div>
+          <div class="user active">
+            <img src="~/img/LoginPage/question.png" />
+            <h4>User</h4>
+          </div>
+        </div>
+        <!-- The Choosen Span -->
+        <p class="welcomeMessage">
+          Hello User!<br />Please Fill out the form below to get started
+        </p>
+        <!-- Input Groups -->
+        <form asp-action="Login" method="post">
+        <div class="inputGroups">
+          <div class="emailInputGroup">
+            <input type="text" asp-for="Username" />
+             <!--Header icon-->
+            <span class="headerIcon" inputType ="Username"></span>
+            <!-- Icon -->
+          
+          </div>
+
+          <div class="passwordInputGroup">
+            <input type="password" asp-for="Password"/>
+             <!--Header icon-->
+             <span class="headerIcon"  inputType ="Password" ></span>
+             <!-- Icon -->
+             <!-- Forgot  -->
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>No Account ? <a  asp-action="Register">Sign Up</a></p>
+            <button type="submit">LogIn</button>
+        </div>
+        </form>
+        <script src="~/js/script.js"></script>
+      </div>

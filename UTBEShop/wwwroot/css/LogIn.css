@@ -1,0 +1,232 @@
+﻿
+/*#region global rules*/
+:root {
+    --main-color: orange;
+    --secondary-color: #19222B;
+    --section-margin-top: 20px;
+    --section-gray: #eee;
+    --section-padding: 60px;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Satisfy", cursive;
+    font-family: "Staatliches", cursive;
+}
+/*#endregion*/
+
+/*#region Rest of form*/
+.loginForm {
+    transform: translate(50%,-70%);
+    top: 50%;
+    right: 50%;
+    position: absolute;
+    padding: 20px;
+}
+
+@media (max-width:784px) {
+    .loginForm {
+        transform: translate(50%,-30%);
+    }
+}
+
+.loginForm h2 {
+    text-align: center;
+    color: var(--secondary-color);
+    position: relative;
+}
+
+    .loginForm h2::after {
+        content: "";
+        background-color: #D1D1D1;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        bottom: 0;
+        margin-top: 5px;
+    }
+
+    .loginForm h2:first-letter {
+        background-color: var(--main-color);
+        color: white;
+    }
+
+.userOptions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary-color);
+}
+
+
+.admin,
+.user {
+    /* border: 0.5px solid gray; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(201, 201, 201, 0.474);
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 2px;
+}
+
+.user {
+    margin-left: 10px;
+}
+
+.admin img {
+    width: 120px;
+}
+
+.user img {
+    width: 120px;
+}
+
+.welcomeMessage {
+    color: #D1D1D1;
+    text-align: center;
+}
+
+.inputGroups {
+    display: flex;
+    flex-direction: column;
+}
+
+    .inputGroups input {
+        border: 1px solid rgba(201, 201, 201, 0.474);
+        padding: 10px;
+        width: 100%;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+        .inputGroups input:focus {
+            outline: 1px solid var(--main-color);
+        }
+
+.emailInputGroup:focus-within ::after {
+    background-color: var(--main-color);
+}
+
+.passwordInputGroup:focus-within ::after {
+    background-color: var(--main-color);
+}
+
+.inputGroups input + span::after {
+    position: absolute;
+    content: attr(inputType);
+    color: white;
+    background-color: #D1D1D1;
+    left: 10%;
+}
+
+.emailInputGroup input + span::after {
+    top: 66%;
+}
+
+.passwordInputGroup input + span::after {
+    top: 75%;
+}
+
+/* Responsivity  */
+
+@media (max-width:748px) {
+    .userOptions {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        align-content: center;
+        color: var(--secondary-color);
+    }
+
+    .user {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    .emailInputGroup input + span::after {
+        top: 76%;
+    }
+
+    .passwordInputGroup input + span::after {
+        top: 83%;
+    }
+
+    .welcomeMessage {
+        margin-bottom: 40px;
+    }
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+    .footer a {
+        color: var(--main-color);
+        text-decoration: none;
+    }
+
+    .footer button {
+        background-color: var(--main-color);
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 7px;
+        width: 7rem;
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
+/* A class that will be added when the selected div of admin or user clicked  */
+.active {
+    border: 2px solid var(--main-color);
+    position: relative;
+}
+
+    .active::after {
+        position: absolute;
+        content: "✓";
+        color: white;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--main-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        top: 90%;
+    }
+
+.user,
+.admin {
+    cursor: pointer;
+}
+
+/*#endregion */
+
+
+
+
+
+
+

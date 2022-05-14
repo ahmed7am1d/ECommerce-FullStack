@@ -1,0 +1,156 @@
+﻿:root {
+    font-size: 100%;
+    line-height: 1.5;
+    --main-color: orange;
+    --secondary-color: #19222B;
+}
+body {
+    font-family:'Mongolian Baiti';
+    font-weight:500;
+}
+
+h1 {
+    font-size:2.25rem;
+    font-weight:700;
+}
+h2{ 
+    font-size:1.5rem;
+    font-weight:700;
+}
+
+a {
+    text-decoration:none;
+    color:var(--main-color);
+}
+
+a:hover {
+    text-decoration:underline;
+}
+.small {
+    font-size:80%;
+    text-align:center;
+}
+
+.split-screen {
+    display:flex;
+    flex-direction:column;
+    margin-top:20px;
+}
+
+.left {
+    height:200px;
+}
+
+.left, .right {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.left {
+    background:linear-gradient(#19222B, rgb(255, 106, 0)), ;
+    background-image:url("../img/DSC_3881.jpg");
+    background-size:cover;
+
+}
+
+.left .copy {
+    color:white;
+    text-align:center;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+
+}
+
+.left p {
+    font-weight:400;
+    position:relative;
+}
+.left h1 {
+    position:relative;
+}
+
+    .left h1::after {
+        position: absolute;
+        content: "";
+        background-color: var(--main-color);
+        height: 3px;
+        width: 100%;
+        top: 0px;
+        bottom: 0;
+        left: 0;
+    }
+
+.left p::after {
+    position:absolute;
+    content:"";
+    background-color:var(--main-color);
+    height:3px;
+    width:100%;
+    top:20px;
+    bottom:0;
+    left:0;
+
+}
+
+.right .copy {
+    color: black;
+    text-align: center;
+}
+
+.right .copy p {
+   margin:1.5em 0;
+   font-size:0.875rem;
+}
+
+.right form {
+    width:328px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+    display:block;
+    width:100%;
+    box-sizing:border-box;
+    border-radius:8px;
+    border:1px solid #c4c4c4;
+    padding:1em;
+    margin-bottom:1.25rem;
+    font-size:0.875rem;
+}
+
+label {
+    display:block;
+    margin-bottom:0.5rem;
+    font-size:0.9rem;
+    font-weight:bold;
+    
+
+}
+
+.signup-btn {
+    display:block;
+    width:100%;
+    background-color:var(--main-color);
+    color:white;
+    font-weight:bold;
+    border:none;
+    padding:1rem;
+    border-radius:8px;
+    font-size:0.75rem;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+}
+@media screen and (min-width:900px) {
+    .split-screen {
+        flex-direction:row;
+        height:100vh;
+    }
+    .left,
+    .right {
+        display:flex;
+        width:50%;
+        height:auto;
+    }
+}

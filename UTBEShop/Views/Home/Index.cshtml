@@ -1,0 +1,98 @@
+﻿@model IList<Product>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+ <main>
+        <!-- WelcomSection  -->
+        <section class="welcomeSection">
+          <aside class="utbImage"><img src="/img/utbImage.jpg"/></aside>
+          <article class="shoptIntroduction">
+            <h2>UTB Shope  :</h2>
+            <h3 id="descriptionShop"></h3>
+            <div class="buttonVisit" id="buttonVisit"><a href="https://new.be.utb.cz/?lang=en" target="_blank">Visit UTB Shop</a></div>
+          </article>
+        </section>
+        
+        <!-- Products Section  -->
+        <section class="container products">
+          <h1 class="mainHeader">Our Products</h1>
+
+          <div class="grid-3">
+            <!-- First Product Type -->
+            <div class="product">
+              <i class="fa-solid fa-shirt fa-2xl"></i>
+              <h3>T-Shirts, Hoodies, Jackets</h3>
+              <p>Universties TShirts, Hoodies, Jackets all and more available with our shop, with great and huge
+                  discount for students and Teachers.</p>
+            </div>
+            
+            <!-- Second Product Type -->
+            <div class="product">
+              <i class="fa fa-plug fa-2xl" aria-hidden="true"></i>
+              <h3>Headsets, HeadPhones, LAN Cables</h3>
+              <p>Are you a gamer ? or even a normal student, you will find our amazing electronics things cheap and high quialty for 
+                  students and teachers you can find Keyboards, LAN Cables, Headsets, Headphones and many more !
+              </p>
+            </div>
+
+            <!-- Third Product Type  -->
+            <div class="product">
+              <i class="fa-solid fa-hand-holding-heart fa-2xl"></i>
+              <h3>Free Clothes, Electronic Staff Donated By People</h3>
+              <p>We don't sell only, but we donate also to the ones that's really need the donation, you can also help us by dontaing to our care center 
+                  , our purpose to help as much number of people as we can !
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!--Current Offeres Sections-->
+        <h1 class="mainHeader">Current Offeres</h1>
+        <div class="currentproducts">
+        <div class="container">
+            <div class="currentproducts-content grid-4">
+                @{ 
+                    for (int i = 0; i < Model.Count; i++)
+                    {
+                 
+                    <div class="card">
+                        <a asp-area="" asp-action="ProductDetails" asp-route-id="@Model[i].Id" asp-controller="Home" style="text-decoration:none; ">
+                            <img src="@Model[i].ProductSourceImage"/>
+                            
+                        </a>
+                        <div class="info">
+                            <h3>@Model[i].ProductName</h3>
+                            <div class="priceBasket">
+                                <h6>$@Model[i].ProductPrice</h6>
+                                <div class="addToBasket">
+                                <a id="addToBasket"
+                                onclick="Buy(@Model[i].Id,'@Url.Action("AddOrderItemsToSession", "CustomerOrderNotCart", new { Area = "Customer" })', '#total_price', '@System.Globalization.CultureInfo.CurrentCulture.Name')">Buy</a></div>
+                            </div>
+                       
+                            <h5>@Model[i].ProductType</h5>
+                            <p>@Model[i].ProductDescription</p>
+                        </div>
+                    </div>
+               
+                        }
+                    }
+            </div>
+        </div>
+    </div>
+    
+   
+      </main>
+@section Scripts
+
+{
+    <environment include="Development">
+        <script src="~/js/Product.js"></script>
+        <script src="./lib/jquery/dist/jquery.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/Product.min.js"></script>
+         <script src="./lib/jquery/dist/jquery.min.js"></script>
+    </environment>
+}

@@ -1,0 +1,56 @@
+﻿<!--Reciving the ViewModel from the controller -->
+@model ProductViewModel
+
+<!--Link our css -->
+@section Styles {
+ <link rel="stylesheet" href="~/css/AdminProduct.css"/>
+}
+
+<!--Showing our products in a table -->
+<div class="table-wrapper">
+ <a type="button" class="createButton" asp-action="Create">Create New Product</a>
+
+    <table class="fl-table">
+        <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Image Source</th>
+            <th>Product Type</th>
+            <th>Product Price</th>
+            <th>Modifications</th>
+        </tr>
+        </thead>
+        <tbody>
+          @{
+              for(int i  = 0 ; i < Model.products.Count ;i++) 
+              {
+        <tr>
+            
+            <th scope="row">@Model.products[i].Id</th>
+                        <td>@Model.products[i].ProductName</td>
+                        <td>@Model.products[i].ProductDescription</td>
+                        <td>@Model.products[i].ProductSourceImage</td>
+                        <td>@Model.products[i].ProductType</td>
+                        <td>$@Model.products[i].ProductPrice</td>
+                        <td>
+                        
+                        <div style="margin-bottom:20px">
+
+<a type="button" class="modifyButton" asp-action="Edit" asp-route-id="@Model.products[i].Id">Modify</a>
+<a asp-action="Delete" asp-route-id="@Model.products[i].Id" type="button" class="deleteButton" onclick="return confirm('Delete entry?')">Delete</a>
+</div>
+                        
+                        </td>
+        </tr>
+              }
+          }
+        <tbody>
+    </table>
+</div>
+
+@section Scripts
+{
+    <script src="~/js/alrets.js"></script>
+}

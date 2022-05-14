@@ -1,0 +1,548 @@
+﻿/*#region Varaibles  */
+:root {
+    --main-color: orange;
+    --secondary-color: #19222B;
+    --section-margin-top: 20px;
+    --section-gray: #eee;
+    --section-padding: 60px;
+}
+
+/*#endregion */
+
+/*#region Global Rules  */
+* {
+    box-sizing: border-box;
+}
+
+::selection {
+    background-color:var(--main-color);
+    color:white;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+
+    @media (min-width: 1200px) {
+        .container {
+            width: 1400px;
+        }
+    }
+}
+
+/*#endregion */
+
+/*#region Header + Nav*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #eee;
+}
+
+
+
+    header .logo {
+        font-family: "Satisfy", cursive;
+        font-size: 30px;
+        font-weight: bold;
+        background-color: var(--secondary-color);
+        width: fit-content;
+        padding: 4px;
+        padding-bottom: 0px;
+        color: white;
+        text-decoration: underline;
+        text-align: center;
+        padding-top: 10px;
+    }
+
+    header ul {
+        list-style: none;
+        display: flex;
+    }
+
+        header ul li {
+            padding: 0;
+            margin: 0;
+            margin-left: 100px;
+            margin-top: 5px;
+            font-family: "Satisfy", cursive;
+            font-family: "Staatliches", cursive;
+            font-size: larger;
+            transition: 0.6s;
+            position: relative;
+            cursor: pointer;
+          
+        }
+
+            header ul li::before {
+                content: "";
+                position: absolute;
+                width: 0%;
+                height: 3px;
+                background-color: var(--main-color);
+                top: 23px;
+                right: 0;
+            }
+
+            header ul li:hover:before {
+                animation-name: linksHover;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+
+@keyframes linksHover {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+header ul li:hover {
+    opacity: 0.5;
+}
+
+header ul li:first-child {
+    margin-left: 0;
+}
+
+header .basket {
+    display: flex;
+    justify-content: space-between;
+    width: fit-content;
+    align-items: center;
+    background-color: var(--main-color);
+    ;
+    padding: 10px;
+}
+
+    header .basket p {
+        font-family: "Satisfy", cursive;
+        font-family: "Staatliches", cursive;
+        font-size: larger;
+    }
+
+    header .basket * {
+        margin-left: 20px;
+    }
+
+        header .basket *:first-child {
+            margin-left: 0px;
+        }
+
+    header .basket i {
+        color: var(--secondary-color);
+        transition: 0.5s;
+    }
+
+       /* header .basket i:hover {
+            transform: scale(1.5);
+            opacity: 0.7;
+        }*/
+
+    header .basket p,
+    header .basket span {
+        color: white;
+    }
+
+
+@media (max-width:780px) {
+    header {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+        header .logo {
+            margin: auto;
+        }
+
+        header ul {
+            justify-content: center;
+        }
+
+            header ul li:first-child {
+                margin-left: 0px;
+            }
+}
+
+@media (max-width:500px) {
+    header ul {
+        flex-direction: column;
+        flex-wrap: wrap;
+    }
+
+        header ul li {
+            margin: 0;
+        }
+}
+
+/*#endregion */
+
+/*#region welcomeSection*/
+.welcomeSection {
+    display: grid;
+    grid-template: auto / 65% 35%;
+    grid-template-areas:
+        "utbImage shoptIntroduction";
+    margin-top: var(--section-margin-top);
+    box-shadow: 0px 30px 1px var(--main-color);
+}
+
+    .welcomeSection .utbImage {
+        grid-area: utbImage;
+    }
+
+        .welcomeSection .utbImage img {
+            width: 100%;
+            height: 100%;
+        }
+
+    .welcomeSection .shoptIntroduction {
+        grid-area: shoptIntroduction;
+        background-color: var(--secondary-color);
+    }
+
+    /* Artical Modification */
+    .welcomeSection article {
+        padding: 100px;
+    }
+
+        .welcomeSection article h2 {
+            color: var(--main-color);
+            font-family: 'Abril Fatface', cursive;
+            font-family: 'Satisfy', cursive;
+            font-family: 'Staatliches', cursive;
+            position: relative;
+            width: fit-content;
+        }
+
+            .welcomeSection article h2::after {
+                content: "";
+                background-color: white;
+                width: 100%;
+                position: absolute;
+                height: 2px;
+                top: 100%;
+                bottom: 0;
+                left: 0;
+                box-shadow: 0px 3px 30px var(--main-color);
+            }
+
+        .welcomeSection article #descriptionShop {
+            color: white;
+        }
+
+        .welcomeSection article .buttonVisit {
+            background-color: var(--main-color);
+            width: fit-content;
+            padding: 20px;
+            padding-right: 40px;
+            padding-left: 40px;
+            display: none;
+        }
+
+            .welcomeSection article .buttonVisit a {
+                text-decoration: none;
+                text-transform: none;
+                color: var(--secondary-color);
+                font-family: 'Abril Fatface', cursive;
+                font-family: 'Satisfy', cursive;
+                font-family: 'Staatliches', cursive;
+                transition: 0.5s;
+            }
+
+                .welcomeSection article .buttonVisit a:hover {
+                    color: white;
+                }
+/* Responsivity:  */
+@media (max-width:1175px) {
+    .welcomeSection article {
+        padding: 50px;
+    }
+}
+
+@media (max-width:988px) {
+    .welcomeSection article {
+        padding: 25px;
+    }
+}
+
+
+@media (max-width:680px) {
+    .welcomeSection {
+        grid-template: 50% auto/ auto;
+        grid-template-areas:
+            "utbImage"
+            "shoptIntroduction";
+    }
+}
+
+/*#endregion */
+
+/*#region Section's Header */
+.mainHeader {
+    text-align: center;
+    margin-bottom: 100px;
+    color: var(--secondary-color);
+    font-family: "Satisfy", cursive;
+    font-family: "Staatliches", cursive;
+    font-size: 40px;
+}
+
+    .mainHeader::first-letter {
+        background-color: var(--main-color);
+        color: white;
+    }
+
+
+/*#endregion*/
+
+/*#region Products Section */
+.products {
+    margin: var(--section-margin-top);
+    margin-left: 0px;
+    margin-right: 0px;
+    display: grid;
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+    animation-name: productsAnimation;
+    animation-duration: 3s;
+}
+
+    .products .product {
+        padding: 20px;
+        text-align: center;
+    }
+
+
+@keyframes productsAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.products .product {
+    border-left: 1px solid var(--main-color);
+}
+
+    .products .product:first-child {
+        border-left: none;
+    }
+
+@media (max-width:1199px) {
+
+    .products .product {
+        border-left: none;
+    }
+}
+
+
+.products .product i {
+    color: var(--main-color);
+}
+
+
+.products .product h3 {
+    font-weight: 800;
+    margin: 30px 0;
+}
+
+.products .product p {
+    line-height: 1.8;
+    font-size: 17px;
+    color: #777;
+}
+ 
+
+
+
+/*#endregion */
+
+/*#region Current Offers  */
+
+.currentproducts {
+    padding-top: var(--section-padding);
+    padding-bottom: var(--section-padding);
+}
+
+    .currentproducts .currentproducts-content .card {
+        background-color: white;
+        box-shadow: 1px 1px 1px var(--main-color),-1px -1px 5px darkgray;
+        padding: 20px;
+        cursor: pointer;
+        margin-right: 40px;
+        position: relative;
+    }
+
+        .currentproducts .currentproducts-content .card img {
+            max-width: 100%;
+            height:210px;
+        }
+
+        .currentproducts .currentproducts-content .card .info {
+            padding: 20px;
+        }
+
+            .currentproducts .currentproducts-content .card .info h3 {
+                margin: 0;
+               
+            }
+
+            .currentproducts .currentproducts-content .card .info h5 {
+                color: var(--main-color);
+                margin: 0;
+                
+            }
+
+            .currentproducts .currentproducts-content .card .info p {
+                color: #777;
+                line-height: 1.6;
+                margin-bottom: 0;
+
+            }
+
+.priceBasket {
+    display:flex;
+    justify-content:space-between;
+}
+
+
+    .priceBasket h6 {
+        font-size:larger;
+        height:fit-content;
+        width:fit-content;
+        text-align:center;
+    }
+.addToBasket {
+    height: fit-content;
+    width: fit-content;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    font-family: "Satisfy", cursive;
+    font-family: "Staatliches", cursive;
+    font-size: 20px;
+    transition: 0.5s;
+    text-align: center;
+    align-self:center;
+}
+
+    .addToBasket:hover {
+        box-shadow: 0px 3px 10px var(--secondary-color)
+    }
+/*#endregion */
+
+/*#region  FrameWork or reused code  */
+.grid-3 {
+    display: grid;
+    /* auto-fill => it will fill the columns with the available space, min is 300px and max 1fr */
+    /* if we have 1000px it will be divided to the 3 elements also 900 but if 800 two take 300px and one go down  */
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    grid-gap: 20px;
+}
+
+.grid-4 {
+    display: grid;
+    /* auto-fill => it will fill the columns with the available space, min is 300px and max 1fr */
+    /* if we have 1000px it will be divided to the 3 elements also 900 but if 800 two take 300px and one go down  */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+}
+/*#endregion */
+
+/*#region Drop Down inside Nav*/
+.dropdownAccount {
+    flex-direction: column;
+    position: absolute;
+    background-color: var(--main-color);
+    padding: 1.5rem 2rem 1rem 1rem;
+    display: none;
+    width: fit-content;
+}
+    .dropdownAccount a i {
+        padding-right:0.5rem;
+    }
+
+    .dropdownAccount a {
+        color: white !important;
+        margin-bottom: 1rem;
+    }
+    .dropdownAccount a:last-child {
+        margin-bottom:0;
+    }
+
+.userName:hover .dropdownAccount{
+    display:flex;
+}
+
+.userName:hover {
+    text-transform:none;
+    text-decoration:none;
+    opacity:1;
+}
+
+@media (max-width:500px) {
+    .dropdownAccount {
+        flex-direction: column;
+        position: relative;
+        background-color: var(--main-color);
+        padding: 1.5rem 0rem 1rem 1rem;
+        display: flex;
+        width: 100%;
+    }
+}
+/*#endregion */
+
+/*#region Scroll Bar Styling*/
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--main-color);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: var(--main-color);
+    }
+
+/*#endregion */

@@ -1,0 +1,72 @@
+﻿@model Product
+@section Styles {
+<link rel="stylesheet" href="~/css/AdminProduct.css" />
+}
+
+<div class="createContainer">
+
+    <div class="Image">
+        @{
+            if (ViewBag.ActionMethod == "Create")
+            {
+                <img src="~/img/DSC_3881.jpg" />
+            }
+            else
+            {
+                 <img src="~/img/pro-best-4k-monitors-1_9f85f818972141bc92425d41038b7b39.jpg" />
+            }
+            }
+            
+    </div>
+    <div class="createFormWrapper">
+       
+        @{
+            if (ViewBag.ActionMethod == "Create")
+            {
+                <h1>Create New Product</h1>
+            }
+            else
+            {
+                 <h1>Modify Existing Product</h1>
+            }
+          }
+
+        <form asp-action="@ViewBag.ActionMethod" method="post" class="formWrapper" enctype="multipart/form-data">
+
+            <div class="inputGroup">
+                <div>
+                    <input asp-for="@Model.ProductName" placeholder="Enter The New Product Name" />
+                    <!--Validation [Server Side Validation]-->
+                    <span asp-validation-for="@Model.ProductName"></span>
+                </div>
+                <div>
+                    <input asp-for="@Model.ProductDescription" placeholder="Enter Product Description" />
+                    <span asp-validation-for="@Model.ProductDescription"></span>
+                </div>
+            </div>
+
+
+            <div class="inputGroup">
+                <input asp-for="@Model.ProductType" placeholder="Enter the Product Type" />
+                <span asp-validation-for="@Model.ProductType" class="productTypeValidation"></span>
+            </div>
+
+
+            <div class="inputGroup">
+                <input asp-for="@Model.ProductPrice" placeholder="Enter the Product Price"  id ="fileupload"/>
+                <span asp-validation-for="@Model.ProductPrice" class="productPriceValidation"></span>
+            </div>
+
+            <div class="inputGroup">
+                <!-- <input asp-for="Model.ProductSourceImage" placeholder="Enter the Product Source Image" /> -->
+
+            <input id="fileupload" asp-for="@Model.Image" class="form-control-file" placeholder="Enter Image Source">
+
+                <!--Servr side validation -->   
+                <span asp-validation-for="@Model.Image"></span>
+            </div>
+            <button type="submit">@(ViewBag.ActionMethod == "Create" ? "Create New Product" : "Edit The Existing Product")</button>
+        </form>
+
+    </div>
+</div>

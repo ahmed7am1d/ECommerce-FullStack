@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UTBEShop", "UTBEShop\UTBEShop.csproj", "{200A7170-E6C1-444C-BACC-020AACC314AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{200A7170-E6C1-444C-BACC-020AACC314AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200A7170-E6C1-444C-BACC-020AACC314AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200A7170-E6C1-444C-BACC-020AACC314AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200A7170-E6C1-444C-BACC-020AACC314AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01251A20-5330-4D82-8F51-ACD0D2920F19}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,56 @@
+﻿@model BasketViewModel
+
+<div class="dropDownBasketContent">
+              <div class="productsItems">
+
+        @{
+            if(Model.Items == null)
+            {
+                <div> 
+                <h3 style="text-align:center">0 items in Basket</h3>
+                </div>
+            }
+            else {
+            for(int i =0 ; i < Model.Items.Count;i++)
+            {
+                   <div class="product1">
+                  <!-- Image - category - Product Title - product description on left -->
+                  <div class="productDescription">
+                    <div>
+                      <img
+                        src=@Model.Items[i].product.ProductSourceImage
+                      />
+                    </div>
+                    <div>
+                      <p>@Model.Items[i].product.ProductType</p>
+                      <h5>@Model.Items[i].product.ProductName</h5>
+                      <p>@Model.Items[i].product.ProductDescription.Substring(0,20)</p>
+                    </div>
+                  </div>
+
+                  <!-- Product Price on right  -->
+                  <div class="productPrice">
+                    <h5>$@Model.Items[i].product.ProductPrice</h5>
+                  </div>
+                </div>
+
+            }
+            }
+                  }
+               </div>
+               @{if(Model.Items != null) {
+              <div class="basketFooter">
+                <div class="priceFooter">
+                  <h4>Total Price:</h4>
+                  <h3 class="totalPrice">$@Model.TotalPrice</h3>
+                </div>
+                <div>
+                  <button ><a asp-area="Customer" asp-controller="CustomerOrderNotCart" asp-action="ApproveOrderInSession" style="text-decoration:none; text-transform:none; color:initial; ">Confirm Order</a></button>
+                </div>
+               
+              </div>
+               }
+                }
+            </div>
+       
+            

@@ -1,0 +1,22 @@
+﻿@model Product
+
+@section Styles {
+<link rel="stylesheet" href="~/css/ProductDetails.css" />
+}
+
+<div class="itemDetails">
+            <div class="imageSection">
+                <img src="@Model.ProductSourceImage"/>
+            </div>
+            <div class="detailsSection">
+                <div class="titlePrice">
+                    <h1 class="productTitle">@Model.ProductName </h1>
+                    <p class="productPrice"><span style="text-decoration: line-through;">$45.00 </span>$@Model.ProductPrice</p>
+                </div>
+                <div class="descrptionButtons">
+                    <p>@Model.ProductDescription</p>
+                    <input type="number" value="1" class="numberOfItems"/>
+                    <button class="addToCartBtn"><i class="fas fa-shopping-cart"></i>Add to cart</button>
+                </div>
+            </div>
+        </div>

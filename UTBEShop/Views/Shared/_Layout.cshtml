@@ -1,0 +1,118 @@
+﻿@using UTBEShop.Models.Entities.Identity
+@using UTBEShop.Models.Extensions
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UTBEShop</title>
+    @RenderSection("Styles",false)
+
+    <link rel="stylesheet" href="~/css/mainLayout.css"/>
+    <link rel="stylesheet" href="~/css/Basket.css" />
+       
+    <!-- Font  -->
+    <!-- Font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Satisfy&family=Staatliches&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Satisfy&family=Staatliches&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/65be32e476.js"
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+     
+<div class="container">
+      <!-- Header -->
+      <header>
+        <div class="logo">UTBShope</div>
+        <nav>
+          <ul>
+   
+
+            <li><a asp-area="" asp-action="Index" asp-controller="Home" style="text-decoration:none; text-transform:none; color:initial; ">Home</a></li>
+            @{
+                        @if(User.IsInRole("Admin"))
+                        {
+                            <li><a asp-area="Admin" asp-action="Select" asp-controller="Product" style="text-decoration:none; text-transform:none; color:initial; ">Products </a></li>
+                        }
+                    }
+            
+            @{
+                  @if (User.Identity.IsAuthenticated == false)
+                     {
+                        <li><a asp-area="Security" asp-action="Register" asp-controller="Account" style="text-decoration:none; text-transform:none; color:initial; ">Sign Up</a></li>
+                        <li><a asp-area="Security" asp-action="Login" asp-controller="Account" style="text-decoration:none; text-transform:none; color:initial; ">Sign in</a></li>
+                     }
+                  else
+                     {
+                            <li class="userName"> 
+                                <i class="fa-solid fa-user" style="color:orange; margin-right:3px"></i>
+                                <a style="text-decoration:none; text-transform:none; color:initial; ">@User.Identity.Name </a> 
+                                <div class="dropdownAccount">
+                                     
+                                     <a asp-area="Security" asp-action="Logout" asp-controller="Account" style="text-decoration:none; text-transform:none; color:initial; "><i class="fa fa-sign-out" style="color:gray; margin-right:3px"></i>Logout</a>
+                                    
+                                     <a asp-area="Security" asp-action="" asp-controller="" style="text-decoration:none; text-transform:none; color:initial; "> <i class="fa fa-cog" style="color:gray; margin-right:3px"></i>Settings</a>
+                                </div>
+                            </li>
+
+                            double totalPrice = 0;
+                            string totalPriceString = "TotalPrice";
+                            if(Context.Session.IsAvailable && Context.Session.Keys.Contains(totalPriceString))
+                            {
+                                totalPrice = Context.Session.GetDouble(totalPriceString).GetValueOrDefault();
+                            }
+                            <li><a id="total_price" class="label" style="color:orange">@totalPrice.ToString("C2")</a></li>
+                        }
+            }
+
+                    @if(User.Identity.IsAuthenticated == true && (User.IsInRole(Roles.Customer.ToString())))
+                    {
+                        <li><a asp-area="Customer" asp-controller="CustomerOrders" asp-action="Index" style="text-decoration:none; text-transform:none; color:initial; ">My Orders</a></li>
+                    }
+            
+           
+          </ul>
+        </nav>
+        <div class="basket">
+          <!-- Icon  -->
+        
+          <i class="fa-solid fa-basket-shopping basketIcon" id="basketIcon"  onclick="ShowBasketItems('@Url.Action("CustomerBasket", "BasketItems", new { Area = "Customer" })')"> 
+         <!--Show View Here-->
+         
+          </i>
+          
+          <!-- basket label -->
+          <p>BASKETS</p>
+          
+          <span id="basketItems" >0</span>
+          <!-- Counter -->
+        </div>
+      </header>
+      <!--Components/Views will be shown here -->
+      <div class="">
+           @RenderBody()
+      </div>
+    </div>
+
+    <script src="~/js/script.js"></script>
+    <script src="~/js/Product.js"></script>
+     <script src="./lib/jquery/dist/jquery.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

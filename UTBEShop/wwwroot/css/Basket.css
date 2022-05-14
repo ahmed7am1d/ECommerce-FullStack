@@ -1,0 +1,152 @@
+﻿/*#region Basket   */
+
+.basketIcon {
+    position: relative;
+}
+
+.dropDownBasketContent {
+    position: absolute;
+
+    color: white !important;
+    border: 1px solid gray;
+    background-color: var(--secondary-color);
+
+    width: 350px !important;
+    height: 500px;
+    padding: 0;
+    left:-1850% !important;
+    top:30px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2002;
+}
+
+.dropDownBasketContent::after {
+  content: "";
+  border: 10px solid;
+  border-color: transparent transparent var(--secondary-color) transparent;
+  position: absolute;
+  /* we give it 5px because there is right and left of border  */
+  right: -0.8px !important;
+  top: -20.7px;
+  
+}
+
+
+.productsItems {
+    overflow-y: scroll;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+    counter-reset:itemsCounter 0;
+}
+
+.product1 {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-size: 0.9rem;
+    margin: 0 !important;
+    position: relative;
+    padding: 20px;
+    counter-increment: itemsCounter 1;
+}
+.basketItems {
+    content: counter(itemsCounter);
+}
+
+.product1::after {
+    position: absolute;
+    background-color: var(--main-color);
+    width: 100%;
+    height: 1px;
+    content: "";
+    top: 0;
+}
+
+.productDescription {
+    display: flex;
+    text-align: center;
+}
+
+    .productDescription h1:first-child {
+        margin: 20px;
+    }
+
+    .productDescription img {
+        width: 90px;
+        height: auto
+    }
+
+.basketFooter {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+    font-size: .7rem;
+    width: 100%;
+    padding: 20px;
+}
+
+.priceFooter {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    align-content: flex-end;
+    flex-direction: row;
+}
+
+.basketFooter button {
+    width: auto;
+    padding: 10px;
+    background-color: var(--main-color);
+    color: white;
+    border-radius: 10px;
+    border: none;
+    transition: 1s;
+    opacity: 0.7;
+}
+
+    .basketFooter button:hover {
+        opacity: 1;
+        box-shadow: 1px 2px 10px var(--main-color);
+    }
+
+.totalPrice {
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+    .totalPrice::first-letter {
+        background-color: var(--main-color);
+    }
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: var(--main-color);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: var(--main-color);
+    }
+/*#endregion */
+

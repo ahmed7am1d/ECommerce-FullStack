@@ -1,0 +1,83 @@
+﻿@model RegisterViewModel
+@section Styles {
+<link rel="stylesheet" href="~/css/SignUp.css" />
+}
+
+<div class="split-screen">
+    <!--Left Section-->
+    <div class="left">
+        
+        <section class="copy">
+        <h1>Explore Many School Products</h1>
+        <p>Over 1000+ Items with high quilatiy and good price</p>
+        </section>
+    </div>
+
+    <!--Right Section-->
+    <div class="right">
+        <!--Don't forget to add method for the form-->
+        <form asp-action="Register" method="post">
+            <section class="copy">
+                <h2>Sign Up</h2>
+                <div class="login-container">
+                    <p>Already have an Account ? <a>
+                        <strong>Log In</strong>
+                    </a>  </p>
+                </div>
+            </section>
+
+             <div class="input-container username">
+                <label asp-for="Username" autocomplete="Username">User name</label>
+                <input  type="text" asp-for="Username"/>
+                <span asp-validation-for="Username"></span>
+            </div>
+
+
+            <div class="input-container firstname">
+                <label asp-for="FirstName" autocomplete="FirstName">First Name</label>
+                <input type="text" asp-for="FirstName"/>
+                <span asp-validation-for="FirstName"></span>
+            </div>
+
+            <div class="input-container lastname">
+                <label asp-for="LastName">Last Name</label>
+                <input asp-for="LastName" type="text"/>
+                <span asp-validation-for="LastName"></span>
+            </div>
+
+            <div class="input-container email">
+                <label asp-for=@Model.Email i>Email:</label>
+                <input asp-for=@Model.Email type="email"/>
+                 <span asp-validation-for="Email"></span>
+            </div>
+
+            <div class="input-container password">
+                <label asp-for=@Model.Password>Password</label>
+                <input asp-for=@Model.Password type="password" placeholder="Must be at least 10 characters"/>
+                 <span asp-validation-for=@Model.Password></span>
+            </div>
+
+            <div class="input-container repeatPassword">
+                 <label asp-for=@Model.RepeatedPassword>Confirm Password</label>
+                <input asp-for=@Model.RepeatedPassword type="password" placeholder="Must be at least 10 characters"/>
+                 <span asp-validation-for=@Model.RepeatedPassword></span>
+            </div>
+
+            <div class="input-container phoneNumber">
+                 <label asp-for=@Model.Phone>Phone Number</label>
+                <input asp-for=@Model.Phone type="text" placeholder="+420...."/>
+                 <span asp-validation-for=@Model.Phone></span>
+            </div>
+
+            <button class="signup-btn" type="submit">
+                Sign Up
+            </button>
+            <section class="copy legal">
+                <p><span class="small">By continuing, you aree to accept our <br />
+                    <a href="#">Privacy Policy</a>
+                    &amp; <a href="#">Terms of Service</a>.
+                </span></p>
+            </section>
+        </form>
+    </div>
+</div>

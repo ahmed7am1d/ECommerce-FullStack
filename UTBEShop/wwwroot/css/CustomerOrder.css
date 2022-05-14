@@ -1,0 +1,13 @@
+﻿.CustomerOrders {
+    margin-top: 20px;
+}
+.myOrdersHeader {
+    color:var(--main-color);
+    position:relative;
+    width:fit-content;
+}
+
+.myOrdersHeader::first-letter {
+    background-color:var(--main-color);
+    color:white;
+}

@@ -1,6 +1,12 @@
-﻿//#region localVaraibles
-var numberOfBasketItems = 0;
-
+﻿//#region localVaraibles + BASKET ITEMS
+var numberOfBasketItems = sessionStorage.getItem("basketItems") > 0 ? sessionStorage.getItem("basketItems") : 0;
+document.getElementById("basketItems").innerText = numberOfBasketItems;
+$("#total_price").text(parseFloat(sessionStorage.getItem("totalCartCost") ? sessionStorage.getItem("totalCartCost") : 0 ).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 4
+}));
 //#endregion 
 
 //#region add to cart session
@@ -14,8 +20,10 @@ function Buy(productId, urlAction, outElementId, locale) {
         data: { productId: productId },
         dataType: "text",
         success: function (totalPrice) {
-            numberOfBasketItems = numberOfBasketItems + 1;
-            ChnageTotalBasketAmount(numberOfBasketItems);
+            numberOfBasketItems = +numberOfBasketItems + 1;
+            sessionStorage.setItem("basketItems", numberOfBasketItems);
+            numberOfBasketItems = sessionStorage.getItem("basketItems");
+            ChnageTotalBasketAmount(+numberOfBasketItems);
             ChangeTotalPriceInformation(outElementId, locale, totalPrice);
         },
         error: function (req, status, error) {
@@ -24,7 +32,7 @@ function Buy(productId, urlAction, outElementId, locale) {
 
     });
     ChnageTotalBasketAmount(numberOfBasketItems);
-  
+
 }
 
 
@@ -36,6 +44,7 @@ function ChnageTotalBasketAmount(amount) {
 
 
 function ChangeTotalPriceInformation(outElementId, locale, totalPrice) {
+    sessionStorage.setItem("totalCartCost", totalPrice);
     $(outElementId).text(parseFloat(totalPrice).toLocaleString(locale, {
         style: "currency",
         currency: "USD",
@@ -83,4 +92,13 @@ function ShowBasketItems(urlAction) {
 
 
 
+//#endregion
+
+//#region reset basket items
+
+function resetBasketItems() {
+    numberOfBasketItems = 0;
+    sessionStorage.setItem("basketItems", 0);
+    sessionStorage.removeItem("totalCartCost");
+}
 //#endregion 

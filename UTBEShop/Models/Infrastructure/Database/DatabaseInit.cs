@@ -53,7 +53,7 @@ namespace UTBEShop.Models.Infrastructure.Database
                 FirstName = "name",
                 LastName = "last name"
             };
-            string password = "abc";
+            string password = "AhmedAdmin09";
 
             User adminInDatabase = await userManager.FindByNameAsync(user.UserName);
 

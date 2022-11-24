@@ -4,9 +4,9 @@ var numberOfBasketItems = 0;
 //#endregion 
 
 //#region add to cart session
+
 function Buy(productId, urlAction, outElementId, locale) {
-    console.log(urlAction);
-    console.log(outElementId);
+
     jQuery.ajax({
 
         type: "POST",
@@ -15,7 +15,7 @@ function Buy(productId, urlAction, outElementId, locale) {
         dataType: "text",
         success: function (totalPrice) {
             numberOfBasketItems = numberOfBasketItems + 1;
-            $("#basketItems").load = numberOfBasketItems;
+            ChnageTotalBasketAmount(numberOfBasketItems);
             ChangeTotalPriceInformation(outElementId, locale, totalPrice);
         },
         error: function (req, status, error) {
@@ -23,6 +23,13 @@ function Buy(productId, urlAction, outElementId, locale) {
         }
 
     });
+    ChnageTotalBasketAmount(numberOfBasketItems);
+  
+}
+
+
+function ChnageTotalBasketAmount(amount) {
+    document.getElementById("basketItems").innerText = amount;
 }
 
 
@@ -33,8 +40,7 @@ function ChangeTotalPriceInformation(outElementId, locale, totalPrice) {
         style: "currency",
         currency: "USD",
         minimumFractionDigits: 2,
-        maximumFractionDigits:4
-
+        maximumFractionDigits: 4
     }));
 }
 
@@ -55,7 +61,7 @@ function ShowBasketItems(urlAction) {
     }
     else {
         basketIcon.classList.add("clicked");
-        
+
         jQuery.ajax({
 
             type: "POST",
@@ -71,7 +77,7 @@ function ShowBasketItems(urlAction) {
 
         });
     }
-        
+
 }
 
 

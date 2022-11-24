@@ -452,7 +452,12 @@ header .basket {
     transition: 0.5s;
     text-align: center;
     align-self:center;
+    
 }
+    .addToBasket a {
+        text-decoration:none;
+        color:white;    
+    }
 
     .addToBasket:hover {
         box-shadow: 0px 3px 10px var(--secondary-color)
@@ -544,5 +549,7 @@ header .basket {
     ::-webkit-scrollbar-thumb:window-inactive {
         background: var(--main-color);
     }
+
+
 
 /*#endregion */

@@ -2,6 +2,7 @@
 
 .basketIcon {
     position: relative;
+    cursor:pointer;
 }
 
 .dropDownBasketContent {

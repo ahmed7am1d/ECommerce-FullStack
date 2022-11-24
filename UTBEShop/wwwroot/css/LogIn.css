@@ -27,7 +27,7 @@ body {
 /*#region Rest of form*/
 .loginForm {
     transform: translate(50%,-70%);
-    top: 50%;
+    top: 70%;
     right: 50%;
     position: absolute;
     padding: 20px;

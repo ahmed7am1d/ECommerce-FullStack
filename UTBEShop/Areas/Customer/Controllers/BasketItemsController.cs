@@ -11,7 +11,7 @@ namespace UTBEShop.Areas.Customer.Controllers
    
         [HttpPost]
         public IActionResult CustomerBasket()
-        {
+            {
             BasketViewModel basketViewModel = new BasketViewModel();
             string orderItemsString = "OrderItems";
             //const string totalPriceString = "TotalPrice";

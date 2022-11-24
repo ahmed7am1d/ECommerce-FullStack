@@ -63,7 +63,6 @@ namespace UTBEShop.Areas.Customer.Controllers
             double totalPrice = 0;
            
 
-
             //-- Getting the Product with the choosen id 
             Product product = _eShopDbContext.Products.Where(prod => prod.Id == productId).FirstOrDefault();
 

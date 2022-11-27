@@ -1,6 +1,6 @@
 ﻿/*#region Varaibles  */
 :root {
-    --main-color: orange;
+    --main-color: #C72C41;
     --secondary-color: #19222B;
     --section-margin-top: 20px;
     --section-gray: #eee;
@@ -198,6 +198,9 @@ header .basket {
         }
 }
 
+.user-logo-icon {
+    color:var(--main-color);
+}
 /*#endregion */
 
 /*#region welcomeSection*/
@@ -298,9 +301,10 @@ header .basket {
             "shoptIntroduction";
     }
 }
-
+.totalPrice-basket {
+    color:var(--main-color);
+}
 /*#endregion */
-
 /*#region Section's Header */
 .mainHeader {
     text-align: center;

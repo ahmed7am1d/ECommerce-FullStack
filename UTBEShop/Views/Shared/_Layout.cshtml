@@ -33,7 +33,7 @@
     <div class="container">
         <!-- Header -->
         <header>
-            <div class="logo">UTBShope</div>
+            <div class="logo">MAYEShop</div>
             <nav>
                 <ul>
 
@@ -55,7 +55,7 @@
                         else
                         {
                             <li class="userName">
-                                <i class="fa-solid fa-user" style="color:orange; margin-right:3px"></i>
+                                <i class="fa-solid fa-user user-logo-icon" margin-right:3px"></i>
                                 <a style="text-decoration:none; text-transform:none; color:initial; ">@User.Identity.Name </a>
                                 <div class="dropdownAccount">
 
@@ -71,7 +71,7 @@
                             {
                                 totalPrice = Context.Session.GetDouble(totalPriceString).GetValueOrDefault();
                             }
-                            <li><a id="total_price" class="label" style="color:orange">@totalPrice.ToString("C2")</a></li>
+                            <li><a id="total_price" class="label totalPrice-basket">@totalPrice.ToString("C2")</a></li>
                         }
                     }
 
